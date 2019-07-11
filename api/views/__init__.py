@@ -38,6 +38,7 @@ def is_not_valid_worker_details(json_input):
                 return is_not_valid_worker_name_details(json_input)
         if not is_valid.email(json_input.get('email')):
                 return jsonify({"message":"email not in the right format"})
+                
 
 def is_not_valid_worker_name_details(json_input):
         if not is_valid.pure_text(json_input.get("name")):
