@@ -12,7 +12,7 @@ simpleapi is a work order service that helps in assigning worker ordes to the wo
 
 ### Quick Setup
 a) Email me your username on Github so as grant you access to the repo as a collaborator.<br>
-b) Open your terminal.<br>
+b) Then Open your terminal.<br>
 c) Type in the command git clone and paste in this link https://github.com/kayongopique/sampleapi.git.
 <br>
 d) You can now write `cd simpleapi` to enter into directory. <br>
