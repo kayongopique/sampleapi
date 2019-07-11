@@ -5,8 +5,8 @@ simpleapi is a workorder service that helps in assigning work orders to the work
 
 ### Main features
 1. User create an account for a worker and log them in.
-2. workers can be allocated maximum of 5 work orders.
-3. the same work order can noy be assigned twice to a particular worker.
+2. Workers can be allocated maximum of 5 work orders.
+3. The same work order can noy be assigned twice to a particular worker.
 4. User can delete a worker.
 5. User can delete a work order.
 
