@@ -105,8 +105,8 @@ class Dbcontroller:
         """Returns a orders in form of a dict ordered by deadlines or None if oredr not found"""
         query = """SELECT * FROM orders WHERE workerId={0} ORDER BY deadline ASC""".format(did,)
         self.cursor.execute(query,)
-        worker = self.cursor.fetchall()
-        return worker
+        orders = self.cursor.fetchall()
+        return orders
 
     def delete(self,table_name,column, id):
             query = """DELETE FROM {0} WHERE {1}={2};""".format(table_name,column, id)

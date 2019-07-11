@@ -1,6 +1,6 @@
 from flask import jsonify, request, json
 from api.views import appblueprint, is_not_valid_order_key,\
-is_not_valid_order, db_conn
+db_conn
 from api.models.models import WorkOrder
 from flask_jwt_extended import jwt_required,get_jwt_identity
 
@@ -14,17 +14,19 @@ def assign_order():
     if is_not_valid_order_key(order_request):
         return is_not_valid_order_key(order_request),400
 
-    # if is_not_valid_order(order_request):
-    #     return is_not_valid_order(order_request),400
-
     title = request.json.get('title')
     description= request.json.get('description')
     deadline = request.json.get('deadline')
     
     new_order = WorkOrder(title,description,worker_identiy['worker_id'], deadline)
-
-    if len(db_conn.fetch_orders(new_order)["workerid"])>=5:
-        return jsonify({"message":"worker order maximum limit reached"}),201
+    orders = db_conn.fetch_orders(new_order)
+    if orders:
+        for order in orders:
+            print(order)
+            if order['workerid'] == worker_identiy['worker_id']:
+                return jsonify({"message":"worker already assigned this work order"}),400
+        if len(db_conn.fetch_orders(new_order))>5:
+            return jsonify({"message":"worker order maximum limit reached"}),400
     db_conn.add_order(new_order) 
     order = db_conn.query_last_item()
     return jsonify({"message":"order added successfully","order":order}),201

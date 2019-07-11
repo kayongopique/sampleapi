@@ -32,12 +32,6 @@ def is_not_valid_order_key(json_input):
     if not json_input.get('description'):
         return jsonify({"message":"description key word is not in the right format"})
    
-def is_not_valid_order(order_dict):
-    if not is_valid.pure_text(order_dict.get("title")):
-        return jsonify({"message":"an error occured in title input"})
-    if not is_valid.normal_string(order_dict.get("description")):
-        return jsonify({"message":"an error occured in description input"})
-   
 
 def is_not_valid_worker_details(json_input):
         if not is_not_valid_worker_name_details(json_input):
@@ -46,6 +40,5 @@ def is_not_valid_worker_details(json_input):
                 return jsonify({"message":"email not in the right format"})
 
 def is_not_valid_worker_name_details(json_input):
-        print(json_input.get("name"))
         if not is_valid.pure_text(json_input.get("name")):
                 return jsonify({"message":"an error occured in name input"})

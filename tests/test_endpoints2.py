@@ -1,4 +1,4 @@
-from tests.test_base import BaseTestCase
+from tests.test_base2 import BaseTestCase
 import unittest
 import json
 from tests import app
@@ -33,3 +33,13 @@ class EndTests(BaseTestCase):
     def test_delete_worker(self):
         res = self.client.delete('/api/workers/1/delete', headers={'Authorization': self.get_token()})
         self.assertEqual(res.status_code, 200)
+
+    
+    def test_cannot_assign_sameorder_twice2worker(self):
+        response = self.make_extra_orders()
+        self.assertEqual(response.status_code, 400)
+
+
+    def test_cannot_assign_morethan_fiveworkers_2_order(self):
+        response = self.make_extraof_five_orders()
+        self.assertEqual(response.status_code, 400)

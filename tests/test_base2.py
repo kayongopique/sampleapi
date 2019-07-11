@@ -17,6 +17,14 @@ class BaseTestCase(unittest.TestCase):
             "company":"wrej@jafcd"}
             self.test_order ={"title":"the office","description":"micheal",\
             "deadline":"2019/07/14"}
+            self.test_order1 ={"title":"big bang theory","description":"sheldon copper",\
+            "deadline":"2019/07/14"}
+            self.test_order2 ={"title":"baby daddy","description":"danny",\
+            "deadline":"2019/07/14"}
+            self.test_order3 ={"title":"mun","description":"christy",\
+            "deadline":"2019/07/14"}
+            self.test_order4 ={"title":"elite","description":"spanish",\
+            "deadline":"2019/07/14"}
             
             
 
@@ -50,3 +58,17 @@ class BaseTestCase(unittest.TestCase):
         return response
    
     
+    def make_extra_orders(self):
+        orders = [self.test_order,self.test_order]
+        for order in orders:
+            response = self.client.post( '/api/orders',content_type='application/json',\
+            headers={'Authorization': self.get_token()}, data=json.dumps(order))
+        return response
+
+    def make_extraof_five_orders(self):
+        orders = [self.test_order,self.test_order,self.test_order,\
+            self.test_order,self.test_order,self.test_order, self.test_order]
+        for order in orders:
+            response = self.client.post( '/api/orders',content_type='application/json',\
+            headers={'Authorization': self.get_token()}, data=json.dumps(order))
+        return response
