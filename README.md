@@ -26,11 +26,11 @@ f) Now run the app using `python run.py runserver` <br>
 |`/orders`	|`GET`|	Fetch all orders|
 |`/orders`	|`POST`| Assign an order to a worker|
 |`/workers/orders`|	`GET`|Fetch all orders by a specific worker|
-|`/orders<orderId>/delete`|`DELETE`|Cancel the specific parcel delivery order|
-|`/orders`|	`POST`|	Create an order|
+|`/orders<orderId>/delete`|`DELETE`|delete the specific work order|
+|`/orders`|	`POST`|	Create a work order|
 |`/auth/signup`|`POST`|Register a worker|
 |`/auth/login`|`POST `|Login a worker|
-|`/workers/<workerId>/delete`|`delete `|delete a user |
+|`/workers/<workerId>/delete`|`delete `|delete a worker |
 
 # Authors
 David Kayongo
