@@ -11,6 +11,10 @@ simpleapi is a work order service that helps in assigning worker ordes to the wo
 5. User can delete a work order.
 
 ### Quick Setup
+#### First option 
+1) use the following URL https://git.heroku.com/flask-sampleapi.git to access the api either in postman or any application of your choice.<br>
+2) If this fails please see option 2 below.
+#### Second option
 a) Email me your username on Github so as grant you access to the repo as a collaborator.<br>
 b) Then Open your terminal.<br>
 c) Type in the command git clone and paste in this link https://github.com/kayongopique/sampleapi.git.
