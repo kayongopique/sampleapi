@@ -10,10 +10,13 @@ simpleapi is a work order service that helps in assigning worker ordes to the wo
 6. Users can delete work order.
 
 ### Quick Setup
-a) Open your terminal.<br>
-c) You can now write `cd simpleapi` to enter into directory. <br>
-d) Create a virtual environment and then `pip install -r requirements.txt` <br>
-e) Now run the app using `python run.py runserver` <br>
+a) Email me your username on Github so as grant you access to the repo as a collaborator.<br>
+b) Open your terminal.<br>
+c) Type in the command git clone and paste in this link https://github.com/kayongopique/sampleapi.git.
+<br>
+d) You can now write `cd simpleapi` to enter into directory. <br>
+e) Create a virtual environment and then `pip install -r requirements.txt` <br>
+f) Now run the app using `python run.py runserver` <br>
 
 ### API Features:
 
