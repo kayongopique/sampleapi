@@ -12,7 +12,7 @@ class Config(object):
 class DevelopmentConfig(Config):
     """Configurations for Development."""
     DEBUG = True
-    DATABASE_URL = 'postgres://postgres:david@localhost:5432/api_db'
+    DATABASE_URL = os.getenv('DATABASE_URL') or 'postgres://postgres:david@localhost:5432/api_db'
 
 
 class TestingConfig(Config):
@@ -22,7 +22,13 @@ class TestingConfig(Config):
     DEBUG = True
 
 
+class ProductionConfig(Config):
+    """Configurations for Production."""
+    DATABASE_URI = os.getenv('DATABASE_URL')
+
+
 app_config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
+    'production': ProductionConfig,
 }

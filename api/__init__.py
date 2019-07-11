@@ -1,6 +1,7 @@
+import os
 from instance import create_app
 
-app = create_app(config_name='development')
+app = create_app(config_name= os.getenv('CONFIG') or 'development')
 
 from api.views.auth import appblueprint
 from api.views.workerOrders import appblueprint
