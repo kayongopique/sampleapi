@@ -40,7 +40,7 @@ class Dbcontroller:
           name varchar(50), email varchar(100), company varchar(100))"
 
         orders_table = "CREATE TABLE IF NOT EXISTS orders(orderId serial PRIMARY KEY,\
-          title varchar(100), description varchar(20),\
+          title varchar(100), description varchar(200),\
           workerId INTEGER REFERENCES workers(workerId),\
          deadline DATE)"
           
