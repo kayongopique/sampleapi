@@ -1,0 +1,105 @@
+sampleapi/docs/auth.yml
+
+create worker
+---
+paths:
+  /api/auth/signup:
+    post:
+      description: Creates a new worker
+      requestBody:
+        required: true
+        content: application/json
+        schema:
+          type: object
+          parameters:
+            name: 
+              type: string
+              example: Aueir ken
+            email: 
+              type: string
+              example: ken@gmail.com
+            company: 
+              type: string
+              example: cisco
+    response:
+      201:
+        description: successful creation of worker
+      401:
+      description: worker already exists
+   
+
+login worker
+---
+  paths:
+    /api/auth/login:
+      post:
+        description: logins a worker on providing correct credatials
+        requestBody:
+          required: true
+          content: application/json
+          schema:
+            type: object
+            parameters:
+              name: 
+                type: string
+                example: Aueir Ken
+              email: 
+                type: string
+                example: ken@gmail.com
+      response:
+        201:
+          description: successful login on a worker
+          content: application/json
+          schema:
+            type: object
+            parameters:
+              token:
+                type: string
+        404:
+          description: user does not exist
+    security:
+      - JWT:
+          description: Pass in jwt token. i.e Token <jwt>
+          -in: header
+            name: Authorization
+            type: apiKey
+            scheme: bearer 
+            bearerFormat: JWT
+
+login superuser
+---
+  paths:
+    /api/auth/login:
+      post:
+        description: logins a admin on providing correct credatials
+        requestBody:
+          required: true
+          content: application/json
+          schema:
+            type: object
+            parameters:
+              name: 
+                type: string
+                id: admin
+              email: 
+                type: string
+                id: admin@gmail.com
+      response:
+        201:
+          description: successful login on a worker
+          content: application/json
+          schema:
+            type: object
+            parameters:
+              token:
+                type: string
+        404:
+          description: user does not exist
+    security:
+      - JWT:
+          description: Pass in jwt token. i.e Token <jwt>
+          -in: header
+            name: Authorization
+            type: apiKey
+            scheme: bearer 
+            bearerFormat: JWT

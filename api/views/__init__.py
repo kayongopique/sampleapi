@@ -3,7 +3,7 @@ from flask import Blueprint,jsonify
 from api.models.validators import Validator
 
 appblueprint = Blueprint('api',__name__)
-
+authblueprint = Blueprint("auth", __name__)
 
 db_conn = Dbcontroller()
 is_valid = Validator()

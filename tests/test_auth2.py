@@ -12,7 +12,7 @@ class TestApi(unittest.TestCase):
         self.client = self.app.test_client()
         with self.app.test_client() as client:
            db_conn.create_tables()
-           self.test_user1 = {"name":"david","email":"kay@gmail.com",\
+           self.test_user1 = {"name":"admin","email":"admin@gmail.com",\
            "company":"cisco"}
 
     def tearDown(self):

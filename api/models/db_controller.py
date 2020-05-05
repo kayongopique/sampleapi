@@ -42,7 +42,7 @@ class Dbcontroller:
         orders_table = "CREATE TABLE IF NOT EXISTS orders(orderId serial PRIMARY KEY,\
           title varchar(100), description varchar(200),\
           workerId INTEGER REFERENCES workers(workerId),\
-         deadline DATE)"
+         deadline bigint)"
           
 
         self.cursor.execute(worker_table)
@@ -102,7 +102,7 @@ class Dbcontroller:
         return order
 
     def fetch_specific_worker_orders(self,did):
-        """Returns a orders in form of a dict ordered by deadlines or None if oredr not found"""
+        """Returns  orders in form of a dict ordered by deadlines or None if order not found"""
         query = """SELECT * FROM orders WHERE workerId={0} ORDER BY deadline ASC""".format(did,)
         self.cursor.execute(query,)
         orders = self.cursor.fetchall()

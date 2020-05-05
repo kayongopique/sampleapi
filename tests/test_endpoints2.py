@@ -13,7 +13,7 @@ class EndTests(BaseTestCase):
 
     def test_can_fetch_all_orders_by_specific_user(self):
         self.make_valid_order()
-        res = self.client.get( '/api/worker/orders', content_type='application/json',\
+        res = self.client.get( '/api/orders/worker/1', content_type='application/json',\
         headers={'Authorization': self.get_token()})
         self.assertEqual(res.status_code, 200)
 
@@ -40,6 +40,7 @@ class EndTests(BaseTestCase):
         self.assertEqual(response.status_code, 400)
 
 
-    def test_cannot_assign_morethan_fiveworkers_2_order(self):
+    def test_cannot_assign_morethan_five_orders_to_worker(self):
         response = self.make_extraof_five_orders()
         self.assertEqual(response.status_code, 400)
+    

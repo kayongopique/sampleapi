@@ -1,0 +1,86 @@
+sampleapi/doc/work_orders
+
+create work order
+---
+paths:
+  /api/orders:
+    post:
+      description: Assigns a work order by the admin to a worker
+      parameters:
+        - in: header
+          name: Authorization
+          description: Authorization header
+          required: true
+          schema:
+            type: string
+            id: token
+      requestBody:
+      required: true
+      content: application/json
+      schema:
+        type: object
+        parameters:
+          title:
+            type: string
+            example: mum
+          description:
+            type: string
+            example: comed
+          deadline:
+            type: string
+            example: 1999-06-27
+          worker_name: 
+            type: string
+          worker_email:
+          type: string
+    response: 
+      201:
+        description: successful assignment of order to a worker
+        content: application/json
+        schema:
+          type: object
+          parameters:
+            message: order successfully added
+            order:
+            type: object
+      400:
+        description: order already assigned
+      security:
+        - JWT:
+            description: Pass in jwt token. i.e Token <jwt>
+            -in: header
+             name: Authorization
+             type: apiKey
+             scheme: bearer 
+             bearerFormat: JWT
+  
+fetch orders
+paths:
+  /api/orders:
+    get:
+      description: fetches all orders assigned to the worker i.e must me an admin
+      parameters:
+      - in: header
+        name: Authorization
+        description: Authorization header
+        required: true
+        schema:
+          type: string
+          id: token
+    reponse:
+      200:
+        description: successfull fetch of oreders
+        content: 
+          type: application/json
+        schema:
+          type: object
+          parameters:
+            title:
+              type: string
+            description:
+              type: string
+            deadline: 
+              type: epoch string
+            worker_id:
+              type: integer
+
