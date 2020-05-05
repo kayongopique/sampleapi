@@ -17,9 +17,8 @@ simpleapi is a work order service that helps in assigning worker orders to the w
 1) use the following URL https://git.heroku.com/flask-sampleapi.git to access the api either in postman or any application of your choice.<br>
 2) If this fails please see option 2 below.
 #### Second option
-a) Email me your username on Github so as grant you access to the repo as a collaborator.<br>
-b) Then Open your terminal.<br>
-c) Type in the command git clone and paste in this link https://github.com/kayongopique/sampleapi.git.
+a) Then Open your terminal.<br>
+b) Type in the command git clone and paste in this link https://github.com/kayongopique/sampleapi.git.
 <br>
 d) You can now write `cd simpleapi` to enter into directory. <br>
 e) Create a virtual environment and then `pip install -r requirements.txt` <br>
